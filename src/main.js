@@ -1,9 +1,12 @@
 const express = require("express");
-const PORT = 8000;
+
 const bodyParse = require("body-parser");
-
+let dotenv = require("dotenv");
 let app = express();
+dotenv.config();
 
+// get the app servers port from env, fallback on 8000 if not configured
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParse.json())
 
